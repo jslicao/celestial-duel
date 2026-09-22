@@ -21,7 +21,7 @@
       <h1 class="brand-name"><img src="./assets/tianyi-wordmark.png" alt="天弈对决" width="2170" height="725" fetchpriority="high" draggable="false"></h1>
       <p class="slogan"><span>观星宿</span><span>定三爻</span><span>启八卦</span><span>决胜负</span></p>
       <p class="game-category">国风卡牌对战桌游</p>
-      <button class="pnp-cta" type="button"><span>获取 <b>PnP</b></span><svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="pnp-cta" type="button" aria-haspopup="dialog" aria-controls="pnp-dialog"><span>获取 <b>PnP</b></span><svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </section>
   <audio id="background-music" src="./assets/xing-yi-qi-dong.mp3" preload="metadata" loop></audio>
@@ -47,6 +47,41 @@
     </button>
     <span id="toggle-hint" role="tooltip">显示全部星宿</span>
   </div>
+  <dialog id="pnp-dialog" aria-labelledby="pnp-title">
+    <header class="pnp-header">
+      <h2 id="pnp-title">获取 <span>PnP</span></h2>
+      <button class="modal-close" type="button" aria-label="关闭弹窗" autofocus><svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></button>
+    </header>
+    <div class="pnp-scroll" tabindex="0" aria-label="PnP 入群方式与桌游简介，可向下滚动">
+      <section class="join-section join-first" aria-label="QQ 入群二维码">
+        <p class="join-description">加入 QQ 交流群，获取 PnP 资源与规则说明。</p>
+        <figure class="qq-card"><img src="./assets/qq-group-original.jpg" alt="天弈对决 PnP 交流群，群号 1126682337，QQ 入群二维码" width="1156" height="2055"></figure>
+      </section>
+      <section class="game-intro" aria-labelledby="intro-title">
+        <h3 id="intro-title" class="section-title">桌游简介</h3>
+        <div class="intro-row">
+          <div class="intro-stat"><span>56</span><h4>张手牌</h4></div>
+          <p>取自 28 星宿，每星宿 1 阴 1 阳共 2 位星官成卡，分攻 / 防 / 疗三种属性和速度值。</p>
+        </div>
+        <div class="intro-row">
+          <div class="intro-stat"><span>10</span><h4>位初始角色</h4></div>
+          <p>每个角色 8 个八卦技能，开局 8 选 4 完成构筑。</p>
+        </div>
+        <div class="intro-row">
+          <div class="intro-stat"><span>5</span><h4>分钟 1 局</h4></div>
+          <div class="intro-copy"><p>2 人对局，完成构筑后，每回合抽牌并按先后手顺序打出 3 张牌，从左到右阴阳次序三爻成卦触发技能。</p><p>双方 6 张牌按速度次序依次生效完成攻 / 防 / 疗，任一方血量归 0 则游戏结束。</p></div>
+        </div>
+        <p class="rules-note">更多细则请参考 PnP 规则说明书。</p>
+      </section>
+      <section class="join-section join-again" aria-labelledby="join-again-title">
+        <h3 id="join-again-title">加入天弈对决 PnP 交流群</h3>
+        <p class="join-description">扫码入群，开启你的第一局。</p>
+        <figure class="qq-card"><img src="./assets/qq-group-original.jpg" alt="QQ 入群二维码，群号 1126682337" width="1156" height="2055" loading="lazy"></figure>
+        <p class="join-method">使用 QQ 扫码，或搜索群号<br><strong>1126682337</strong></p>
+      </section>
+    </div>
+  </dialog>
+  <script type="module" src="./pnp.js"></script>
   <script type="module" src="./sky.js"></script>
   <script type="module" src="./music.js"></script>
 </body>
