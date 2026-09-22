@@ -101,3 +101,7 @@ canvas:active { cursor:grabbing; }
 @media(prefers-reduced-motion:reduce) { #pnp-dialog[open] { animation:none; } .pnp-scroll { scroll-behavior:auto; } }
 .join-first .join-description { margin:0 0 18px; }
 .join-first .qq-card { width:min(260px,34dvh); }
+.card-example { grid-column:1 / -1; justify-self:center; width:180px; max-width:70%; margin:0; }
+.card-example img { display:block; width:100%; height:auto; filter:drop-shadow(0 7px 14px #0005); }
+.character-example { width:208px; }
+@media(max-width:600px) { .hand-example { width:156px; } .character-example { width:184px; } }
