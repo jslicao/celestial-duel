@@ -1,0 +1,5 @@
+node_modules/
+.sites-runtime/
+*.tar.gz
+scripts/stars.8.json
+scripts/chinese.json

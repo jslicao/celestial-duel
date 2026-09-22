@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const sky=JSON.parse(fs.readFileSync('dist/data/sky.json'));
+assert.equal(sky.houses.length,28);
+assert.equal(new Set(sky.houses.map(h=>h.name)).size,28);
+const stars=new Map(sky.stars.map(s=>[s[0],s]));
+for(const h of sky.houses)for(const line of h.lines)for(const id of line)assert(stars.has(id),`Missing HIP ${id}`);
+for(const s of sky.stars)assert(s.every(Number.isFinite)&&Math.abs(s[1])<=360&&Math.abs(s[2])<=90);
+for(const name of ['sky.js','style.css','vendor/three.module.js','vendor/three.core.js'])assert(fs.existsSync('dist/'+name));
+console.log(`Verified ${sky.stars.length} real catalog stars, all 28 mansions, and every line endpoint.`);

@@ -1,0 +1,6 @@
+{
+  "name": "tianyi-starry-sky",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "data": "node scripts/prepare-data.mjs", "check": "node scripts/check.mjs" }
+}

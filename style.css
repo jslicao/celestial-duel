@@ -1,0 +1,58 @@
+:root { color-scheme:dark; background:#050a15; font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif; }
+* { box-sizing:border-box; }
+html,body { margin:0; width:100%; height:100%; overflow:hidden; }
+#sky { position:fixed; inset:0; overflow:hidden; outline:none; touch-action:none; background:radial-gradient(ellipse at 75% 25%,#101d30 0%,#080f20 48%,#030710 100%); }
+#sky:focus-visible { box-shadow:inset 0 0 0 1px #bba57755; }
+canvas { display:block; width:100%; height:100%; cursor:grab; opacity:0; transition:opacity 1.6s ease; }
+.ready canvas { opacity:1; }
+canvas:active { cursor:grabbing; }
+.label { position:absolute; top:0; left:0; pointer-events:none; white-space:nowrap; opacity:0; will-change:transform,opacity; color:#e4d6b9; text-shadow:0 2px 14px #000,0 0 30px #091223; }
+.label strong { font-size:25px; font-weight:400; letter-spacing:.32em; }
+.label small { display:block; margin-top:9px; color:#a5aab3; font-size:12px; letter-spacing:.18em; }
+#loading { position:absolute; inset:50% 0 auto; margin:0; text-align:center; font-size:13px; letter-spacing:.4em; color:#aeb9c9; transition:opacity .6s; pointer-events:none; }
+.ready #loading { opacity:0; }
+.error #loading { opacity:1; letter-spacing:.08em; padding:24px; line-height:1.8; }
+.hero { position:fixed; z-index:3; inset:0; display:grid; place-items:center; padding:66px 24px 42px; pointer-events:none; isolation:isolate; }
+.hero::before { content:""; position:absolute; z-index:-1; inset:0; background:radial-gradient(ellipse 440px 400px at 50% 50%,#040a14e8 0%,#050b17c9 40%,#050b1766 70%,transparent 100%); pointer-events:none; }
+.hero-content { display:flex; flex-direction:column; align-items:center; width:max-content; max-width:100%; pointer-events:auto; text-align:center; }
+.brand-seal { display:block; width:clamp(150px,25svh,224px); height:auto; filter:drop-shadow(0 12px 25px #0009) drop-shadow(0 0 28px #7c947b13); animation:brand-arrive 1.4s both; }
+.brand-name { width:min(410px,76vw); margin:20px 0 0; line-height:0; animation:brand-arrive 1.4s .12s both; }
+.brand-name img { width:100%; height:auto; filter:drop-shadow(0 4px 12px #000a); }
+.slogan { display:flex; justify-content:center; gap:25px; margin:30px 0 0; color:#e2d8c5; font-size:18px; line-height:1.8; font-weight:400; letter-spacing:.18em; text-shadow:0 2px 12px #000; animation:brand-arrive 1.3s .28s both; }
+.slogan span { position:relative; white-space:nowrap; }
+.slogan span+span::before { content:""; position:absolute; width:2px; height:2px; top:50%; left:-15px; background:#b9a378; transform:rotate(45deg); opacity:.65; }
+.game-category { display:flex; align-items:center; gap:18px; margin:15px 0 0; color:#a7adb5; font-size:13px; line-height:1.7; letter-spacing:.32em; animation:brand-arrive 1.3s .38s both; }
+.game-category::before,.game-category::after { content:""; width:30px; height:1px; background:linear-gradient(90deg,transparent,#a28d605c); }
+.game-category::after { transform:rotate(180deg); }
+.pnp-cta { position:relative; isolation:isolate; display:flex; justify-content:center; align-items:center; gap:22px; width:190px; min-height:54px; margin-top:38px; padding:14px 22px; border:0; color:#e4d3ae; font:16px/1.5 "Songti SC","SimSun",serif; letter-spacing:.16em; cursor:pointer; background:linear-gradient(120deg,#ad946246,#d5bd8699 48%,#ad946247); clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px); transition:color .3s,filter .3s,transform .2s; animation:brand-arrive 1.3s .5s both; }
+.pnp-cta::before { content:""; position:absolute; z-index:-1; inset:1px; background:linear-gradient(115deg,#111c25,#1b2429 50%,#111b24); clip-path:inherit; transition:background .35s; }
+.pnp-cta b { font-family:Georgia,"Times New Roman",serif; font-weight:400; letter-spacing:.06em; }
+.pnp-cta svg { opacity:.7; transition:transform .3s,opacity .3s; }
+.pnp-cta:hover { color:#fff0cc; filter:drop-shadow(0 0 12px #c5a36622); }
+.pnp-cta:hover::before { background:linear-gradient(115deg,#24302e,#34362e 50%,#222c2c); }
+.pnp-cta:hover svg { transform:translateX(3px); opacity:1; }
+.pnp-cta:active { transform:translateY(1px); }
+.pnp-cta:focus-visible { outline:none; background:#f6db9b; }
+.pnp-cta:focus-visible::before { inset:2px; }
+@keyframes brand-arrive { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:600px) { .hero { padding:66px 20px 42px; } .hero::before { background:radial-gradient(ellipse 280px 350px at 50% 50%,#040a14e8 0%,#050b17c9 40%,#050b1755 75%,transparent 100%); } .brand-seal { width:clamp(142px,23svh,190px); } .brand-name { width:min(330px,82vw); margin-top:20px; } .slogan { gap:18px; font-size:15px; letter-spacing:.1em; margin-top:25px; } .slogan span+span::before { left:-10px; } .game-category { font-size:12px; gap:12px; letter-spacing:.24em; } .pnp-cta { margin-top:30px; } }
+@media(max-width:360px) { .slogan { gap:13px; font-size:14px; } .slogan span+span::before { left:-8px; } }
+@media(max-height:620px) { .hero { padding:32px 18px 20px; } .brand-seal { width:110px; } .brand-name { width:270px; margin-top:10px; } .slogan { margin-top:12px; font-size:15px; } .game-category { margin-top:8px; } .pnp-cta { margin-top:20px; min-height:48px; } }
+@media(max-height:420px) { .hero { overflow-y:auto; display:block; padding:26px 18px; } .hero-content { margin:auto; } .brand-seal { width:80px; } .brand-name { width:220px; } .pnp-cta { margin-top:14px; } }
+@media(prefers-reduced-motion:reduce) { .brand-seal,.brand-name,.slogan,.game-category,.pnp-cta { animation:none; } .pnp-cta,.pnp-cta::before,.pnp-cta svg { transition:none; } }
+.sky-control { position:fixed; z-index:5; top:max(28px,env(safe-area-inset-top)); right:max(30px,env(safe-area-inset-right)); }
+#constellation-toggle { display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid #adbed32b; border-radius:50%; color:#afbed0; background:#080f2080; backdrop-filter:blur(12px); cursor:pointer; transition:color .35s,border-color .35s,background .35s,box-shadow .35s; }
+#constellation-toggle .icon-lines { opacity:.35; transition:opacity .35s; }
+#constellation-toggle:hover { color:#e4dccb; border-color:#c9c6bd70; background:#111c2fd9; }
+#constellation-toggle[aria-pressed="true"] { color:#ddc79b; border-color:#c4a87466; background:#24232b99; box-shadow:0 0 22px #bfa16a0d,inset 0 0 12px #c5a96e08; }
+#constellation-toggle[aria-pressed="true"] .icon-lines { opacity:.95; }
+#constellation-toggle:focus-visible { outline:2px solid #ddc79b; outline-offset:5px; }
+#constellation-toggle:disabled { opacity:.4; cursor:wait; }
+#toggle-hint { position:absolute; top:56px; right:0; padding:8px 12px; border:1px solid #adbed320; border-radius:6px; background:#09111ded; color:#c5cbd4; font:12px/1.5 "Songti SC","SimSun",serif; letter-spacing:.08em; white-space:nowrap; pointer-events:none; opacity:0; transform:translateY(-3px); transition:opacity .2s,transform .2s; }
+@media(hover:hover) { .sky-control:hover #toggle-hint { opacity:1; transform:translateY(0); } }
+.sky-control:focus-within #toggle-hint { opacity:1; transform:translateY(0); }
+.show-all .label strong { font-size:20px; letter-spacing:.22em; }
+.show-all .label small { display:none; }
+@media(max-width:600px) { .sky-control { top:max(18px,env(safe-area-inset-top)); right:max(18px,env(safe-area-inset-right)); } .show-all .label strong { font-size:18px; } }
+@media(max-width:600px) { .label strong { font-size:22px; } }
+@media(prefers-reduced-motion:reduce) { canvas,#loading,#constellation-toggle,#constellation-toggle .icon-lines,#toggle-hint { transition:none; } }

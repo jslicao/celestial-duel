@@ -1,0 +1,16 @@
+STAR CATALOG
+Hipparcos star positions, magnitudes and B−V color indices distributed by D3 Celestial.
+Source: https://github.com/ofrohn/d3-celestial/blob/master/data/stars.8.json
+Retrieved 2026-09-22; J2000 equatorial coordinates. Filtered to magnitude <= 7.5, retaining all mansion members. Coordinates are unchanged.
+D3 Celestial © 2015 Olaf Frohn. BSD 3-Clause; full license in D3-LICENSE.txt.
+
+CHINESE ASTERISMS
+Source: https://github.com/Stellarium/stellarium/blob/master/skycultures/chinese/index.json
+Retrieved 2026-09-22. The 28 names ending in 宿 and their HIP line endpoints were extracted, ordered, and grouped by the Four Symbols. The line topology is unchanged. These are representative asterisms, not exhaustive lunar mansion boundaries.
+Chinese sky culture by Karrie Berglund (Digitalis Education Solutions, Inc.) and Sun Shuwei, based on Hong Kong Space Museum maps and works cited in Chinese-sky-culture.md.
+Licensed CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+The adapted asterism data in sky.json is distributed under CC BY-SA 4.0.
+
+RENDERER
+Three.js 0.180.0, MIT license. See ../vendor/THREE-LICENSE.txt.
+https://threejs.org/
