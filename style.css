@@ -41,18 +41,25 @@ canvas:active { cursor:grabbing; }
 @media(max-height:420px) { .hero { overflow-y:auto; display:block; padding:26px 18px; } .hero-content { margin:auto; } .brand-seal { width:80px; } .brand-name { width:220px; } .pnp-cta { margin-top:14px; } }
 @media(prefers-reduced-motion:reduce) { .brand-seal,.brand-name,.slogan,.game-category,.pnp-cta { animation:none; } .pnp-cta,.pnp-cta::before,.pnp-cta svg { transition:none; } }
 .sky-control { position:fixed; z-index:5; top:max(28px,env(safe-area-inset-top)); right:max(30px,env(safe-area-inset-right)); }
-#constellation-toggle { display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid #adbed32b; border-radius:50%; color:#afbed0; background:#080f2080; backdrop-filter:blur(12px); cursor:pointer; transition:color .35s,border-color .35s,background .35s,box-shadow .35s; }
-#constellation-toggle .icon-lines { opacity:.35; transition:opacity .35s; }
-#constellation-toggle:hover { color:#e4dccb; border-color:#c9c6bd70; background:#111c2fd9; }
-#constellation-toggle[aria-pressed="true"] { color:#ddc79b; border-color:#c4a87466; background:#24232b99; box-shadow:0 0 22px #bfa16a0d,inset 0 0 12px #c5a96e08; }
-#constellation-toggle[aria-pressed="true"] .icon-lines { opacity:.95; }
-#constellation-toggle:focus-visible { outline:2px solid #ddc79b; outline-offset:5px; }
-#constellation-toggle:disabled { opacity:.4; cursor:wait; }
-#toggle-hint { position:absolute; top:56px; right:0; padding:8px 12px; border:1px solid #adbed320; border-radius:6px; background:#09111ded; color:#c5cbd4; font:12px/1.5 "Songti SC","SimSun",serif; letter-spacing:.08em; white-space:nowrap; pointer-events:none; opacity:0; transform:translateY(-3px); transition:opacity .2s,transform .2s; }
-@media(hover:hover) { .sky-control:hover #toggle-hint { opacity:1; transform:translateY(0); } }
-.sky-control:focus-within #toggle-hint { opacity:1; transform:translateY(0); }
+:is(#constellation-toggle,#music-toggle) { display:grid; place-items:center; width:44px; height:44px; padding:0; border:1px solid #adbed32b; border-radius:50%; color:#afbed0; background:#080f2080; backdrop-filter:blur(12px); cursor:pointer; transition:color .35s,border-color .35s,background .35s,box-shadow .35s; }
+:is(#constellation-toggle,#music-toggle) .icon-lines { opacity:.35; transition:opacity .35s; }
+:is(#constellation-toggle,#music-toggle):hover { color:#e4dccb; border-color:#c9c6bd70; background:#111c2fd9; }
+:is(#constellation-toggle,#music-toggle)[aria-pressed="true"] { color:#ddc79b; border-color:#c4a87466; background:#24232b99; box-shadow:0 0 22px #bfa16a0d,inset 0 0 12px #c5a96e08; }
+:is(#constellation-toggle,#music-toggle)[aria-pressed="true"] .icon-lines { opacity:.95; }
+:is(#constellation-toggle,#music-toggle):focus-visible { outline:2px solid #ddc79b; outline-offset:5px; }
+:is(#constellation-toggle,#music-toggle):disabled { opacity:.4; cursor:wait; }
+:is(#toggle-hint,#music-hint) { position:absolute; top:56px; right:0; padding:8px 12px; border:1px solid #adbed320; border-radius:6px; background:#09111ded; color:#c5cbd4; font:12px/1.5 "Songti SC","SimSun",serif; letter-spacing:.08em; white-space:nowrap; pointer-events:none; opacity:0; transform:translateY(-3px); transition:opacity .2s,transform .2s; }
+@media(hover:hover) { .sky-control:hover :is(#toggle-hint,#music-hint) { opacity:1; transform:translateY(0); } }
+.sky-control:focus-within :is(#toggle-hint,#music-hint) { opacity:1; transform:translateY(0); }
 .show-all .label strong { font-size:20px; letter-spacing:.22em; }
 .show-all .label small { display:none; }
 @media(max-width:600px) { .sky-control { top:max(18px,env(safe-area-inset-top)); right:max(18px,env(safe-area-inset-right)); } .show-all .label strong { font-size:18px; } }
 @media(max-width:600px) { .label strong { font-size:22px; } }
-@media(prefers-reduced-motion:reduce) { canvas,#loading,#constellation-toggle,#constellation-toggle .icon-lines,#toggle-hint { transition:none; } }
+@media(prefers-reduced-motion:reduce) { canvas,#loading,:is(#constellation-toggle,#music-toggle),:is(#constellation-toggle,#music-toggle) .icon-lines,:is(#toggle-hint,#music-hint) { transition:none; } }
+
+.music-control { right:auto; left:max(30px,env(safe-area-inset-left)); }
+.music-control #music-hint { left:0; right:auto; }
+#music-toggle .music-off { opacity:.6; transition:opacity .3s; }
+#music-toggle[aria-pressed="true"] .music-off { opacity:0; }
+@media(max-width:600px) { .music-control { right:auto; left:max(18px,env(safe-area-inset-left)); } }
+@media(prefers-reduced-motion:reduce) { #music-toggle .music-off { transition:none; } }

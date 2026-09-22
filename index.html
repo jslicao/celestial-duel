@@ -24,6 +24,18 @@
       <button class="pnp-cta" type="button"><span>获取 <b>PnP</b></span><svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </section>
+  <audio id="background-music" src="./assets/xing-yi-qi-dong.mp3" preload="metadata" loop></audio>
+  <div class="sky-control music-control">
+    <button id="music-toggle" type="button" aria-label="背景音乐" aria-pressed="false" aria-describedby="music-hint">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+        <path d="M10 17V6l9-2v11M10 9l9-2" stroke="currentColor" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="7.6" cy="17.5" rx="2.5" ry="1.8" transform="rotate(-20 7.6 17.5)" fill="currentColor"/>
+        <ellipse cx="16.6" cy="15.5" rx="2.5" ry="1.8" transform="rotate(-20 16.6 15.5)" fill="currentColor"/>
+        <path class="music-off" d="m4 4 16 16" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <span id="music-hint" role="tooltip">开启背景音乐</span>
+  </div>
   <div class="sky-control">
     <button id="constellation-toggle" type="button" aria-label="显示全部星宿" aria-pressed="false" aria-describedby="toggle-hint" disabled>
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
@@ -36,5 +48,6 @@
     <span id="toggle-hint" role="tooltip">显示全部星宿</span>
   </div>
   <script type="module" src="./sky.js"></script>
+  <script type="module" src="./music.js"></script>
 </body>
 </html>
